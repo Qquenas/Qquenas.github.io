@@ -1,0 +1,14 @@
+/* 選填配色。第一堂完全不用改；不是把整個樣式表交給學生。 */
+:root {
+  --accent: #6257ad;
+  --accent-dark: #494183;
+  --accent-soft: #eeebf8;
+  --ink: #252639;
+  --muted: #696b7e;
+  --canvas: #f6f6fa;
+  --paper: #ffffff;
+  --line: #e2e2ed;
+  --sidebar-top: #27253c;
+  --sidebar-bottom: #181927;
+  --radius: 18px;
+}

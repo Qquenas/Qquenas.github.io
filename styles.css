@@ -1,0 +1,258 @@
+/*
+  FIXED UI｜老師備妥，學生不必閱讀或改寫。
+  這份檔案保留排版、RWD、照片展示、焦點提示和列印。
+  要改自己的文字與圖片：請去 index.html 的 EDIT 01–05。
+  要選填配色：只改 theme.css 的 :root，不刪這份 CSS。
+*/
+:root { --side: 246px; --page-max: 1320px; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 26px; }
+body { margin: 0; background: var(--canvas); color: var(--ink); font: 15px/1.85 system-ui, -apple-system, 'Noto Sans CJK TC', 'Microsoft JhengHei', sans-serif; }
+a { color: inherit; text-underline-offset: 4px; }
+button, input { font: inherit; }
+button, summary { cursor: pointer; }
+img { display: block; max-width: 100%; }
+h1, h2, h3, p, figure { margin: 0; }
+h1, h2, h3 { line-height: 1.45; }
+button, a, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+:focus-visible { outline: 3px solid #a78be2; outline-offset: 5px; }
+[hidden] { display: none !important; }
+::selection { background: #ded5f6; }
+.skip { position: fixed; top: -90px; left: 16px; z-index: 90; background: #fff; padding: 12px; border-radius: 8px; }
+.skip:focus { top: 12px; }
+/* 固定側欄：學生只改裡面的文字，不動定位。 */
+.sidebar { position: fixed; inset: 0 auto 0 0; width: var(--side); padding: 28px 26px 22px; background: linear-gradient(155deg, var(--sidebar-top), var(--sidebar-bottom)); color: #fff; display: flex; flex-direction: column; overflow-y: auto; z-index: 30; }
+.wordmark { font: 29px/1 Georgia, 'Times New Roman', serif; letter-spacing: -1px; text-decoration: none; padding-bottom: 27px; border-bottom: 1px solid #ffffff19; }
+.wordmark span { color: #bfb2ee; }
+.profile { margin: 29px 0 25px; }
+#avatar { width: 86px; height: 86px; object-fit: cover; border: 5px solid #ffffff12; box-shadow: 0 0 0 1px #c7b5ff3b; border-radius: 50%; margin-bottom: 20px; }
+#sidebar-name { font-size: 26px; font-weight: 680; letter-spacing: .04em; overflow-wrap: anywhere; }
+#profile-school { color: #c5c3d5; font-size: 12px; margin-top: 6px; }
+#side-nav { display: grid; gap: 3px; margin: 0 -12px; }
+#side-nav a { display: flex; gap: 15px; align-items: center; padding: 10px 12px; border: 1px solid transparent; border-radius: 8px; font-size: 13px; color: #c6c4d7; text-decoration: none; transition: background .18s, color .18s; }
+#side-nav a span { font: 10px/1.5 ui-monospace, Consolas, monospace; color: #aaa3c5; }
+#side-nav a:hover, #side-nav a[aria-current] { background: #ffffff0d; border-color: #ffffff12; color: #fff; }
+#side-nav a[aria-current]::after { content: ''; width: 5px; height: 5px; background: #c6b7ff; border-radius: 50%; margin-left: auto; }
+.side-note { font-size: 11px; color: #b1aec6; line-height: 1.95; margin-top: auto; padding-top: 28px; }
+#menu-toggle { display: none; }
+/* 首頁：保留精緻照片構圖，但沒有任何輪播或額外素材要求。 */
+main { margin-left: var(--side); padding: 0 clamp(30px, 4vw, 64px); max-width: var(--page-max); }
+.page-top { display: flex; justify-content: space-between; align-items: center; gap: 22px; padding: 19px 0; border-bottom: 1px solid var(--line); font-size: 9px; letter-spacing: 1.4px; color: var(--muted); }
+#demo-note { letter-spacing: .025em; color: var(--accent); }
+.hero { display: grid; grid-template-columns: 1.07fr 1fr; gap: 50px; align-items: center; padding: 51px 0 54px; }
+.eyebrow { font: 600 10px/1.7 ui-monospace, Consolas, monospace; letter-spacing: 1.8px; color: var(--accent); margin-bottom: 12px; }
+#profile-name { font-size: clamp(42px, 4.5vw, 66px); font-weight: 730; letter-spacing: .07em; line-height: 1.18; overflow-wrap: anywhere; }
+#profile-english { font: italic 24px/1.6 Georgia, serif; color: #777386; margin-top: 10px; }
+#profile-tagline { font-size: clamp(20px, 1.8vw, 25px); letter-spacing: .01em; font-weight: 550; margin-top: 23px; line-height: 1.7; }
+#profile-summary { font-size: 13px; color: var(--muted); margin-top: 14px; max-width: 34em; }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 25px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 13px; text-decoration: none; border: 1px solid #dcd9eb; padding: 10px 16px; border-radius: 7px; background: transparent; font-size: 12px; transition: transform .18s, box-shadow .18s, background .18s; }
+.button.primary { background: var(--accent); border-color: var(--accent); color: #fff; box-shadow: 0 6px 18px #6257ad20; }
+.button:hover { transform: translateY(-2px); box-shadow: 0 8px 23px #33304c16; }
+.hero-photo { position: relative; padding: 0 12px 0 0; }
+.hero-photo::before { content: ''; position: absolute; inset: 21px 0 34px 24px; background: #e6e1f0; border-radius: 18px; transform: rotate(3deg); z-index: -1; }
+.hero-photo img { width: 100%; height: auto; aspect-ratio: 5/5.1; object-fit: cover; object-position: center; border: 9px solid #fff; border-radius: 12px; box-shadow: 0 13px 40px #32224718; }
+.hero-photo figcaption { font-size: 10px; color: var(--muted); margin: 14px 5px 0; line-height: 1.7; }
+/* 可刪區塊的空間分配，不依賴學生去寫排版。 */
+.section { padding: 41px 0 43px; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+.section h2 { font-size: clamp(23px, 2.2vw, 29px); font-weight: 650; letter-spacing: .015em; margin-bottom: 25px; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.section-heading > p { font-size: 11px; color: var(--muted); text-align: right; min-width: 155px; margin-bottom: 18px; }
+.about-grid { display: grid; grid-template-columns: 1.22fr 1fr; gap: 30px; align-items: start; }
+#about-text { font-size: 14px; line-height: 2; }
+.small-accent { color: var(--accent-dark); border-left: 3px solid #c4b9df; padding: 1px 0 1px 15px; font-size: 12px; margin-top: 18px; }
+#skills-list { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 21px 24px; box-shadow: 0 4px 15px #30264a04; }
+.skill + .skill { margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line); }
+.skill h3 { font-size: 14px; }
+.skill p { font-size: 12px; color: var(--muted); margin-top: 5px; }
+/* 作品卡：全部文字仍在同一 article，詳情用原生 details。 */
+.project-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+.project-card { display: grid; grid-template-columns: 1.03fr 1fr; border: 1px solid var(--line); background: var(--paper); border-radius: var(--radius); overflow: hidden; box-shadow: 0 10px 25px #30264a05; }
+.project-visual { position: relative; min-width: 0; background: #ececf5; display: flex; align-items: stretch; padding: 17px; }
+.project-visual > img, .project-visual > .photo-open { width: 100%; align-self: center; }
+.project-visual img { width: 100%; height: auto; aspect-ratio: 16/11; object-fit: cover; border-radius: 9px; }
+.project-body { padding: 24px 26px; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
+.project-meta { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 9px; letter-spacing: 1px; color: var(--accent); margin-bottom: 12px; }
+.status { font-size: 10px; padding: 3px 9px; background: #eef1ed; color: #435d45; border-radius: 50px; white-space: nowrap; letter-spacing: 0; }
+[data-status='idea'] .status { background: #f4ecdf; color: #856033; }
+[data-status='done'] .status { background: #e5f1e9; color: #356747; }
+.project-card h3 { font-size: 21px; margin-bottom: 12px; font-weight: 650; overflow-wrap: anywhere; }
+.project-body > p { color: var(--muted); font-size: 12px; line-height: 1.95; margin-top: 9px; }
+.project-body .role { font-size: 11px; color: var(--accent-dark); border-left: 2px solid #cfc5e5; padding-left: 10px; margin: 14px 0; }
+details { border-top: 1px solid var(--line); padding-top: 12px; margin-top: 15px; font-size: 12px; }
+summary { color: var(--accent-dark); font-size: 12px; list-style: none; display: flex; align-items: center; gap: 12px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: '+'; font: 19px/1 ui-monospace, monospace; margin-left: auto; width: 23px; height: 23px; display: grid; place-items: center; background: var(--accent-soft); border-radius: 50%; }
+details[open] > summary::after { content: '−'; }
+details p { margin-top: 13px; color: var(--muted); }
+details[open] > p { animation: details-in .18s ease-out; }
+@keyframes details-in { from { opacity: .5; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+/* 時間軸、活動、資源：小而清楚，不做技能百分比。 */
+.journey-item { display: grid; grid-template-columns: 82px 1fr; gap: 26px; padding: 0 0 26px; position: relative; }
+.journey-item::before { content: ''; position: absolute; left: 95px; top: 12px; bottom: 0; width: 1px; background: #d7d1e8; }
+.journey-item::after { content: ''; position: absolute; left: 91px; top: 9px; width: 9px; height: 9px; border: 2px solid var(--accent); background: var(--canvas); border-radius: 50%; }
+.journey-item:last-child { padding-bottom: 0; }
+.journey-item:last-child::before { bottom: 10px; }
+.journey-item time { font: 11px/2 ui-monospace, Consolas, monospace; color: var(--accent); padding-top: 2px; }
+.journey-item > div { padding-left: 12px; }
+.journey-item h3 { font-size: 17px; font-weight: 620; }
+.journey-item p { font-size: 13px; color: var(--muted); margin-top: 7px; }
+.evidence-link { display: inline-block; margin-top: 9px; font-size: 11px; color: var(--accent); text-decoration: none; border-bottom: 1px solid #c7bfdf; }
+.experience-item { display: grid; grid-template-columns: 108px 180px 1fr; gap: 21px; background: var(--accent-soft); border: 1px solid #e0d9f1; border-radius: 12px; padding: 25px; }
+.time, .role { font-size: 12px; color: var(--muted); }
+.experience-item h3 { font-size: 16px; }
+.experience-item .description { font-size: 12px; line-height: 1.9; color: #53546b; }
+/* 生活照片：多個比例，但只需要 2–3 張照片。 */
+.life-grid { display: grid; grid-template-columns: 1.15fr 1fr .92fr; gap: 22px; align-items: start; }
+.life-grid:not(:has(> figure:nth-child(3))) { grid-template-columns: 1fr 1fr; }
+.life-grid figure:only-child { max-width: 650px; grid-column: 1/-1; }
+.life-grid figure:nth-child(2) { padding-top: 28px; }
+.life-grid figure:nth-child(3) { padding-top: 9px; }
+.life-grid img { width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 10px; transition: transform .28s; }
+.life-grid figure:nth-child(3) img { aspect-ratio: 3/4; }
+.life-grid figcaption { margin-top: 14px; padding-left: 3px; }
+.life-grid h3 { font-size: 16px; font-weight: 600; }
+.life-grid figcaption p { font-size: 12px; color: var(--muted); line-height: 1.95; margin-top: 7px; }
+.resource-row { display: grid; grid-template-columns: 48px 1fr auto; gap: 18px; align-items: center; border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 20px 23px; }
+.resource-type { font: 9px/1.4 ui-monospace, monospace; padding: 16px 6px; text-align: center; color: var(--accent); background: var(--accent-soft); border-radius: 5px; }
+.resource-row h3 { font-size: 16px; }
+.resource-row p { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.resource-row > a { font-size: 12px; color: var(--accent); white-space: nowrap; text-decoration: none; }
+#note-1 { padding: 15px 23px; background: #f0eef6; border-radius: 8px; border: 0; margin-top: 12px; }
+.contact { display: flex; align-items: center; justify-content: space-between; gap: 26px; padding: 29px 33px; margin: 34px 0; border: none; border-radius: var(--radius); background: linear-gradient(125deg, #2d294a, #43405f); color: #fff; }
+.contact .eyebrow { color: #c8bff2; }
+.contact h2 { font-size: 26px; margin-bottom: 12px; }
+.contact p:not(.eyebrow) { font-size: 12px; color: #d3cedd; }
+.contact .button { background: #f6f3ff; color: #373052; border-color: #f6f3ff; white-space: nowrap; }
+footer { display: flex; justify-content: space-between; gap: 22px; padding: 22px 0 29px; border-top: 1px solid var(--line); font-size: 10px; color: var(--muted); }
+footer > span { white-space: nowrap; }
+/* 輔助 JS 建立的圖片放大、閱讀進度；不用另填任何資料。 */
+.photo-open { display: block; position: relative; width: 100%; padding: 0; border: 0; background: none; border-radius: 10px; cursor: zoom-in; }
+.photo-open::after { content: '↗'; display: grid; place-items: center; position: absolute; right: 12px; bottom: 12px; width: 28px; height: 28px; border: 1px solid #ffffff55; border-radius: 50%; color: white; background: #25253bb8; font-size: 16px; pointer-events: none; opacity: 0; transform: translateY(3px); transition: opacity .18s, transform .18s; }
+.photo-open:hover::after, .photo-open:focus-visible::after { opacity: 1; transform: none; }
+.photo-open:hover img { filter: brightness(1.025); }
+.reading-progress { position: fixed; top: 0; left: var(--side); right: 0; height: 3px; z-index: 40; pointer-events: none; }
+.reading-progress span { display: block; height: 100%; width: 100%; background: #9f87d4; transform-origin: left; transform: scaleX(0); }
+.photo-dialog { border: 1px solid #ffffff32; background: #1f2030; color: #fff; padding: 18px; border-radius: 14px; width: min(1020px, calc(100% - 28px)); max-height: 94dvh; overflow: auto; box-shadow: 0 30px 90px #0006; }
+.photo-dialog::backdrop { background: #111321dc; backdrop-filter: blur(4px); }
+.photo-dialog-head { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 14px; }
+.photo-dialog h2 { font-size: 15px; font-weight: 500; color: #e8e2f7; }
+.photo-dialog button { background: #ffffff0d; color: white; border: 1px solid #ffffff33; border-radius: 6px; padding: 5px 13px; }
+.photo-dialog img { max-height: 70dvh; width: 100%; height: auto; object-fit: contain; border-radius: 6px; }
+.photo-dialog figcaption { margin-top: 11px; font-size: 12px; color: #d1cddd; }
+/* 依螢幕縮排，不要求学生先學 media query。 */
+@media (min-width: 1580px) { main { max-width: 1510px; padding-inline: 72px; } .hero { gap: 70px; } }
+@media (max-width: 1150px) {
+  :root { --side: 215px; }
+  .sidebar { padding: 25px 22px; }
+  main { padding-inline: 32px; }
+  .hero { gap: 26px; }
+  #profile-name { font-size: 47px; }
+  #profile-tagline { font-size: 21px; }
+  .about-grid { gap: 22px; }
+  .project-body { padding: 21px; }
+  .project-card h3 { font-size: 19px; }
+  .experience-item { grid-template-columns: 105px 1fr; gap: 12px 20px; }
+  .experience-item .description { grid-column: 2; }
+}
+@media (max-width: 840px) {
+  :root { --side: 0px; }
+  html { scroll-padding-top: 80px; }
+  .sidebar { position: sticky; inset: auto; top: 0; width: auto; padding: 14px 22px; flex-direction: row; align-items: center; justify-content: space-between; overflow: visible; min-height: 60px; }
+  .wordmark { padding: 0; border: 0; font-size: 26px; }
+  .side-note { display: none; }
+  .profile { display: flex; order: 2; margin: 0 13px 0 auto; }
+  .profile #avatar { width: 34px; height: 34px; margin: 0; border-width: 2px; }
+  .profile p { display: none; }
+  #menu-toggle { display: block; order: 3; color: #eeeaf8; background: #ffffff08; border: 1px solid #ffffff2a; border-radius: 6px; font-size: 12px; padding: 4px 12px; }
+  #side-nav { display: grid; position: absolute; left: 0; right: 0; top: 100%; margin: 0; background: var(--sidebar-bottom); padding: 14px 24px 21px; border-bottom: 1px solid #cfc9e3; max-height: 76dvh; overflow: auto; }
+  .js-ready #side-nav:not(.open) { display: none; }
+  html:not(.js-ready) .sidebar { display: block; position: static; }
+  html:not(.js-ready) #side-nav { position: static; margin-top: 18px; }
+  main { margin: 0; padding-inline: 26px; }
+  .reading-progress { top: 60px; }
+  .hero { padding: 35px 0 39px; }
+  .hero-photo img { aspect-ratio: 4/4.7; }
+  .section { scroll-margin-top: 77px; }
+}
+@media (max-width: 600px) {
+  main { padding-inline: 21px; }
+  .page-top { gap: 10px; padding: 15px 0; font-size: 8px; letter-spacing: .7px; }
+  #demo-note { max-width: 120px; text-align: right; }
+  .hero { grid-template-columns: 1fr; gap: 30px; padding: 29px 0 35px; }
+  #profile-name { font-size: 49px; }
+  #profile-tagline { font-size: 23px; }
+  #profile-english { font-size: 22px; }
+  #profile-summary { font-size: 13px; }
+  .hero-photo { padding-right: 7px; }
+  .hero-photo img { aspect-ratio: 16/10; border-width: 7px; }
+  .hero-photo::before { inset: 16px 0 34px 19px; }
+  .section { padding: 32px 0; }
+  .section h2 { font-size: 25px; margin-bottom: 22px; }
+  .section-heading { display: block; }
+  .section-heading > p { text-align: left; font-size: 11px; margin: -8px 0 21px; }
+  .about-grid { grid-template-columns: 1fr; gap: 23px; }
+  #skills-list { padding: 20px 21px; }
+  .project-card { grid-template-columns: 1fr; }
+  .project-visual { padding: 14px; }
+  .project-visual img { aspect-ratio: 16/10; }
+  .project-body { padding: 22px; }
+  .project-card h3 { font-size: 21px; }
+  .project-body > p { font-size: 13px; }
+  .project-meta { font-size: 9px; }
+  .journey-item { grid-template-columns: 66px 1fr; gap: 17px; }
+  .journey-item::before { left: 76px; }
+  .journey-item::after { left: 72px; }
+  .journey-item > div { padding-left: 8px; }
+  .journey-item time { font-size: 10px; }
+  .journey-item h3 { font-size: 16px; }
+  .journey-item p { font-size: 12px; }
+  .experience-item { grid-template-columns: 1fr; gap: 8px; padding: 23px; }
+  .experience-item .description { grid-column: auto; }
+  .life-grid, .life-grid:not(:has(> figure:nth-child(3))) { grid-template-columns: 1fr 1fr; gap: 25px 16px; }
+  .life-grid figure:first-child { grid-column: 1/-1; }
+  .life-grid figure:nth-child(2), .life-grid figure:nth-child(3) { padding-top: 0; }
+  .life-grid figure:not(:first-child) img { aspect-ratio: 3/4; }
+  .life-grid:not(:has(> figure:nth-child(3))) figure { grid-column: 1/-1; }
+  .life-grid:not(:has(> figure:nth-child(3))) img { aspect-ratio: 16/10; }
+  .life-grid h3 { font-size: 15px; }
+  .life-grid figcaption p { font-size: 12px; }
+  .resource-row { grid-template-columns: 40px 1fr; gap: 13px; padding: 18px; }
+  .resource-row > a { grid-column: 2; justify-self: start; }
+  .resource-row h3 { font-size: 15px; }
+  .contact { display: block; padding: 26px 23px; margin: 28px 0; }
+  .contact h2 { font-size: 23px; }
+  .contact .button { margin-top: 21px; }
+  footer { display: block; }
+  footer > span { display: block; margin-top: 12px; }
+  .photo-dialog { padding: 13px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  @page { size: A4; margin: 15mm; }
+  .sidebar, .actions, .hero-photo, .project-visual, .life-grid, .reading-progress, .photo-dialog { display: none !important; }
+  main { margin: 0; padding: 0; max-width: none; }
+  body { background: #fff; color: #111; font-size: 10pt; line-height: 1.6; }
+  .page-top { padding: 0 0 10px; }
+  .hero { display: block; padding: 15px 0; }
+  #profile-name { font-size: 27pt; }
+  #profile-tagline { font-size: 13pt; }
+  .section { padding: 16px 0; }
+  .section h2 { font-size: 16pt; margin-bottom: 12px; }
+  .section-heading > p { display: none; }
+  .project-grid { display: block; }
+  .project-card { display: block; border: 0; box-shadow: none; margin-bottom: 15px; break-inside: avoid; }
+  .project-body { padding: 0; }
+  details p { display: block !important; font-size: 9pt; }
+  summary::after { display: none; }
+  .experience-item, #skills-list { background: #fff; border: 1px solid #ccc; padding: 12px; }
+  #life { display: none; }
+  .contact { display: block; background: #fff; color: #111; border: 1px solid #ccc; margin: 15px 0; padding: 15px; }
+  .contact p:not(.eyebrow) { color: #444; }
+  .contact .button { display: inline; color: #111; background: none; border: 0; padding: 0; box-shadow: none; }
+  .contact a::after { content: ' (' attr(href) ')'; font-size: 8pt; }
+  .button { transform: none !important; }
+}

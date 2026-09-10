@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <!-- EDIT 01｜title 與 meta description 同步人物資料；下方樣式與 script 不用修改。 -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <title>林予安｜學習與日常（虛構示範）</title>
+    <meta content="林予安的虛構高中生作品集示範，展示學習、專案與日常。" name="description"/>
+    <link href="images/avatar-demo.svg" rel="icon" type="image/svg+xml"/>
+    <link href="styles.css" rel="stylesheet"/>
+    <script defer="" src="app.js"></script>
+    <link href="theme.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <!-- 教材規則：只修改 EDIT 01–05 指定的內容／src／alt／href；版型與輔助程式已備妥。 -->
+    <a class="skip" href="#main">跳到主要內容</a>
+    <aside class="sidebar">
+      <a class="wordmark" href="#home">field<span>notes</span>.</a>
+      <button aria-controls="side-nav" aria-expanded="false" id="menu-toggle" type="button">選單 ＋</button>
+      <!-- EDIT 01｜身分：img#avatar 的 src/alt、#sidebar-name、#profile-school。 -->
+      <div class="profile">
+        <img alt="YA 字母頭像，非真人照片" height="88" id="avatar" src="images/avatar-demo.svg" width="88"/>
+        <p data-person-name="" id="sidebar-name">黃修廷</p>
+        <p id="profile-school">青嶼高中 高二（虛構）</p>
+      </div>
+      <nav id="side-nav" aria-label="主要導覽">
+        <a href="#about"><span>01</span>關於我</a>
+        <a href="#projects"><span>02</span>專案與作品</a>
+        <a href="#journey"><span>03</span>學習足跡</a>
+        <a href="#experience"><span>04</span>課外參與</a>
+        <a href="#life"><span>05</span>生活與興趣</a>
+        <a href="#resources"><span>06</span>筆記與分享</a>
+        <a href="#contact"><span>07</span>聯絡</a>
+      </nav>
+      <p class="side-note">留下真正做過的事。<br/>也留下還在學的自己。</p>
+    </aside>
+    <main id="main">
+      <div class="page-top">
+        <span>LEARNING PORTFOLIO / 2026</span>
+        <span id="demo-note">虛構學生示範 · 素材照片</span>
+      </div>
+      <header id="home" class="hero">
+        <!-- EDIT 01｜首頁：#profile-name、#profile-english、#profile-tagline、#profile-summary。 -->
+        <div class="hero-copy">
+          <p class="eyebrow">HELLO, I'M</p>
+          <h1 data-person-name="" id="profile-name">黃修廷</h1>
+          <p id="profile-english">Yu-An Lin</p>
+          <p id="profile-tagline">加工研</p>
+          <p id="profile-summary">喜歡網頁、攝影和觀察日常。這裡收集正在嘗試的小專案，也記錄課表以外的生活。</p>
+          <div class="actions">
+            <a class="button primary" href="#projects">先看我的作品 ↗</a>
+            <a class="button" href="#life">看看我的日常</a>
+          </div>
+        </div>
+        <!-- EDIT 04｜首頁圖：#hero-image src/alt、#hero-caption；可重用生活照。 -->
+        <figure class="hero-photo">
+          <img alt="Firefly Uniform 照片" height="400" id="hero-image" src="images/firefly-uniform.jpg" width="600"/>
+          <figcaption id="hero-caption">
+            從日常的光線，開始練習觀察。｜素材照片
+          </figcaption>
+        </figure>
+      </header>
+      <!-- EDIT 01｜自介與練習：#about-text、#learning-goal、#skills-list；框架不改。 -->
+      <section id="about" class="section" aria-labelledby="about-title">
+        <p class="eyebrow">01 / ABOUT ME</p>
+        <h2 id="about-title">還在學，也願意動手試。</h2>
+        <div class="about-grid">
+          <div>
+            <p id="about-text">以前常覺得要先很厲害，才能開始做作品。最近練習把題目縮小：先做一頁能打開的網站，再把遇到的問題一個一個解決。</p>
+            <p class="small-accent" id="learning-goal">最近想做：完成一個能和同學分享的小工具。</p>
+          </div>
+          <div id="skills-list">
+            <div class="skill">
+              <h3>HTML / CSS · 正在學</h3>
+              <p>練習換文字、圖片和連結，不先追求很複雜的功能。</p>
+            </div>
+            <div class="skill">
+              <h3>觀察與整理</h3>
+              <p>把做過的步驟和卡住的地方寫下來。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="projects" class="section" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / SELECTED WORK</p>
+            <h2 id="projects-title">做過的，和正準備開始的。</h2>
+          </div>
+          <p>一到兩件就好。<br/>說清楚自己的部分，比數量重要。</p>
+        </div>
+        <div class="project-grid">
+          <!-- EDIT 02｜作品一：保留 article、id、class；更換本卡片的文字、圖與狀態。 -->
+          <article id="project-1" class="project-card" data-status="doing">
+            <div class="project-visual">
+              <img alt="教材示範網站的實際截圖" height="900" id="project-1-image" loading="lazy" src="images/project-website.webp" width="1440"/>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>01 / WEB</span>
+                <span class="status" id="project-1-status">進行中</span>
+              </div>
+              <h3 id="project-1-title">我的第一個學習作品集</h3>
+              <p id="project-1-summary">整理原本散落的筆記和圖片，讓別人能從一個網站認識我正在學什麼。</p>
+              <p class="role" id="project-1-role">我的部分：整理內容、替換圖片，檢查手機版。</p>
+              <details id="project-1-details">
+                <summary>看看過程與下一步</summary>
+                <p id="project-1-process">先改名字和一張照片，再逐段補入作品。這是虛構人物的練習情境，網站程式由教材提供。</p>
+                <p id="project-1-next">下一步：加入一筆自己的學習紀錄。</p>
+              </details>
+            </div>
+          </article>
+          <!-- EDIT 02｜作品二選填：沒有就刪整個 article#project-2；保留外層 .project-grid。 -->
+          <article id="project-2" class="project-card" data-status="idea">
+            <div class="project-visual">
+              <img alt="咖啡杯素材，用來示意光線觀察計畫，並非實驗成果" height="400" id="project-2-image" loading="lazy" src="images/project-light-study.jpg" width="600"/>
+            </div>
+            <div class="project-body">
+              <div class="project-meta">
+                <span>02 / INDEPENDENT STUDY</span>
+                <span class="status idea" id="project-2-status">籌備中</span>
+              </div>
+              <h3 id="project-2-title">同一張桌子，三種光線</h3>
+              <p id="project-2-summary">想在早晨、下午和晚上，固定位置拍同一個物件。正在想怎麼記錄，還沒有拍出結果。</p>
+              <p class="role" id="project-2-role">預計負責：拍攝、整理照片與比較觀察。</p>
+              <details id="project-2-details">
+                <summary>看看籌備計畫</summary>
+                <p id="project-2-process">先選好場景與時間，畫出記錄表。封面是素材，不是已完成的拍攝成果。</p>
+                <p id="project-2-next">下一步：試拍一次，看看構圖能不能固定。</p>
+              </details>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- EDIT 03｜學習足跡：每個 article 是一筆；無資料刪本 section 及對應目錄。 -->
+      <section id="journey" class="section" aria-labelledby="journey-title">
+        <p class="eyebrow">03 / LEARNING JOURNEY</p>
+        <h2 id="journey-title">課表之外，慢慢累積。</h2>
+        <div id="journey-list">
+          <article class="journey-item" id="journey-1" data-evidence="yes">
+            <time datetime="2026-09">2026.09</time>
+            <div>
+              <h3>開始做個人網站</h3>
+              <p>練習用 HTML 的標籤，找到名字、圖片與作品的位置。</p>
+              <a class="evidence-link" href="#project-1">看這次的網站練習 ↗</a>
+            </div>
+          </article>
+          <article class="journey-item" id="journey-2" data-evidence="no">
+            <time datetime="2026-08">2026.08</time>
+            <div>
+              <h3>整理閱讀時的問題</h3>
+              <p>讀完先寫下一個還不理解的問題。目前沒有可公開的筆記。</p>
+            </div>
+          </article>
+          <article class="journey-item" id="journey-3" data-evidence="no">
+            <time datetime="2026-07">2026.07</time>
+            <div>
+              <h3>準備第一輪光線觀察</h3>
+              <p>先想好比較方式，不把計畫寫成已完成的成果。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- EDIT 03｜課外參與：填本人工作，不需幹部職稱；無資料可刪整區。 -->
+      <section id="experience" class="section" aria-labelledby="experience-title">
+        <p class="eyebrow">04 / PARTICIPATION</p>
+        <h2 id="experience-title">參與，也說清楚自己的工作。</h2>
+        <article class="experience-item" id="experience-1">
+          <p class="time">2025 — 2026</p>
+          <div>
+            <h3>創作與資訊社（虛構）</h3>
+            <p class="role">社員</p>
+          </div>
+          <p class="description">協助整理活動步驟，記下新手常遇到的問題，讓下一位同學比較容易上手。</p>
+        </article>
+      </section>
+      <!-- EDIT 04｜生活：每個 figure 是圖片與圖說一組；第三張可刪。 -->
+      <section id="life" class="section" aria-labelledby="life-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">05 / OUTSIDE THE CLASSROOM</p>
+            <h2 id="life-title">生活裡，也有我的樣子。</h2>
+          </div>
+          <p>兩三張照片，一兩句話。<br/>興趣不必硬包裝成成就。</p>
+        </div>
+        <div id="life-gallery" class="life-grid">
+          <figure id="life-1">
+            <img alt="木桌上的咖啡杯，日常光線素材" height="400" id="life-1-image" loading="lazy" src="images/life-coffee.jpg" width="600"/>
+            <figcaption>
+              <h3>日常的光線</h3>
+              <p>喜歡看同一個角落，在不同時間出現什麼變化。｜素材照片</p>
+            </figcaption>
+          </figure>
+          <figure id="life-2">
+            <img alt="一隻貓的近照，生活興趣素材" height="300" id="life-2-image" loading="lazy" src="images/life-cat.jpg" width="451"/>
+            <figcaption>
+              <h3>慢下來的時刻</h3>
+              <p>觀察小動物，是不用急著得到答案的事情。｜素材照片</p>
+            </figcaption>
+          </figure>
+          <figure id="life-3">
+            <img alt="攝影者與相機的黑白素材，非示範人物肖像" height="512" id="life-3-image" loading="lazy" src="images/life-camera.jpg" width="512"/>
+            <figcaption>
+              <h3>從看照片，到自己拍</h3>
+              <p>先學會注意畫面裡最重要的東西。｜素材照片</p>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+      <!-- EDIT 05｜分享：有真實筆記才留連結；刪區塊時同步刪導覽連結。 -->
+      <section id="resources" class="section" aria-labelledby="resources-title">
+        <p class="eyebrow">06 / NOTES &amp; SHARING</p>
+        <h2 id="resources-title">把想法留給下一次的自己。</h2>
+        <article id="resource-1" class="resource-row">
+          <span class="resource-type">NOTE</span>
+          <div>
+            <h3>我如何開始第一個網站</h3>
+            <p>教材提供的短筆記，不是個人得獎或課程證書。</p>
+          </div>
+          <a href="#note-1">閱讀 ↗</a>
+        </article>
+        <details id="note-1">
+          <summary>展開示範筆記</summary>
+          <p>先準備一張頭像、兩張生活照和一張專案圖。找到要改的元素，改來源檔、儲存，再重新整理確認。這是教材的示範內容。</p>
+        </details>
+      </section>
+      <!-- EDIT 05｜聯絡：a#github-link 同時改 href 和文字；不要放假目的地。 -->
+      <section id="contact" class="section contact">
+        <div>
+          <p class="eyebrow">07 / SAY HELLO</p>
+          <h2 id="contact-title">從一個小作品，開始認識。</h2>
+          <p id="contact-text">示範先連到 GitHub Skills；正式使用時改成自己的公開連結。</p>
+        </div>
+        <a class="button primary" href="https://github.com/skills" id="github-link" rel="noopener noreferrer" target="_blank">GitHub 學習資源 ↗</a>
+      </section>
+      <!-- EDIT 05｜頁尾：#footer-name 同步；更換示例說明但保留素材與來源署名。 -->
+      <footer>
+        <p id="footer-note">虛構人物與學校；照片為素材，不代表本人拍攝或參與。<a href="CREDITS.md">素材與來源</a></p>
+        <span>© 2026 <span data-person-name="" id="footer-name">林予安</span></span>
+      </footer>
+    </main>
+  </body>
+</html>
